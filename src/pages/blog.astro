@@ -1,0 +1,64 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+---
+
+<Layout title="Blog">
+  <Header />
+  <main class="min-h-screen pt-32 pb-20">
+    <div class="max-w-7xl mx-auto px-6">
+      <div class="text-center mb-20 gsap-fade-up">
+        <h1 class="text-5xl md:text-6xl font-bold tracking-tight mb-6">Blog</h1>
+        <p class="text-xl text-gray-600 dark:text-gray-400 max-w-3xl mx-auto">
+          Neuigkeiten, Trends und Insights rund um Customer Experience und Vertriebsdigitalisierung.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <!-- Placeholder Blog Posts -->
+        {[1, 2, 3, 4, 5, 6].map((i) => (
+          <article class="bg-white dark:bg-zinc-900 rounded-3xl overflow-hidden shadow-sm border border-gray-100 dark:border-zinc-800 gsap-fade-up hover:shadow-xl transition-shadow cursor-pointer">
+            <div class="aspect-video bg-gray-200 dark:bg-zinc-800 flex items-center justify-center">
+              <svg class="w-12 h-12 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"></path></svg>
+            </div>
+            <div class="p-6">
+              <span class="text-sm font-semibold text-blue-600 dark:text-blue-400 mb-2 block">Kategorie</span>
+              <h2 class="text-xl font-bold mb-3 text-gray-900 dark:text-white">Wie die Digitalisierung den lokalen Vertrieb verändert</h2>
+              <p class="text-gray-600 dark:text-gray-400 text-sm mb-4 line-clamp-3">
+                Erfahren Sie, wie moderne Tools die Kundenkommunikation auf ein neues Level heben und welche Strategien jetzt wichtig sind.
+              </p>
+              <span class="text-xs text-gray-500">24. Mai 2024 • 5 min Lesezeit</span>
+            </div>
+          </article>
+        ))}
+      </div>
+    </div>
+  </main>
+  <Footer />
+</Layout>
+
+<script>
+  import gsap from 'gsap';
+  import { ScrollTrigger } from 'gsap/ScrollTrigger';
+
+  gsap.registerPlugin(ScrollTrigger);
+
+  const fadeUps = document.querySelectorAll('.gsap-fade-up');
+  fadeUps.forEach((element, i) => {
+    gsap.fromTo(element,
+      { y: 30, opacity: 0 },
+      {
+        y: 0,
+        opacity: 1,
+        duration: 0.8,
+        delay: i * 0.1,
+        ease: "power2.out",
+        scrollTrigger: {
+          trigger: element,
+          start: "top 85%",
+        }
+      }
+    );
+  });
+</script>

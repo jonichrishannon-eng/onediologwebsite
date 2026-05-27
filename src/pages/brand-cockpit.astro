@@ -1,0 +1,97 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+---
+
+<Layout title="Brand Cockpit">
+  <Header />
+  <main class="min-h-screen pt-32 pb-20">
+    <div class="max-w-7xl mx-auto px-6">
+      <div class="text-center mb-20 gsap-fade-up">
+        <h1 class="text-5xl md:text-6xl font-bold tracking-tight mb-6">Brand Cockpit</h1>
+        <p class="text-xl text-gray-600 dark:text-gray-400 max-w-3xl mx-auto">
+          Zentrale Steuerung Ihrer Markenkommunikation und umfassende Auswertungen.
+        </p>
+      </div>
+
+      <div class="space-y-32">
+        <!-- Kommunikation -->
+        <section id="kommunikation" class="grid grid-cols-1 md:grid-cols-2 gap-16 items-center gsap-fade-up">
+          <div>
+            <h2 class="text-3xl font-bold mb-6">Kommunikation</h2>
+            <p class="text-gray-600 dark:text-gray-400 text-lg mb-6 leading-relaxed">
+              Stellen Sie sicher, dass Ihre Marke an jedem Touchpoint konsistent auftritt. Mit dem Brand Cockpit haben Sie die volle Kontrolle über Vorlagen und Kommunikationsrichtlinien.
+            </p>
+            <ul class="space-y-4">
+              <li class="flex items-center gap-3"><svg class="w-5 h-5 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg> Einheitliche CI</li>
+              <li class="flex items-center gap-3"><svg class="w-5 h-5 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg> Freigabeprozesse</li>
+            </ul>
+          </div>
+          <div class="bg-gray-100 dark:bg-zinc-900 rounded-3xl aspect-video overflow-hidden relative">
+             <div class="absolute inset-0 bg-gradient-to-br from-blue-500/20 to-purple-500/20"></div>
+          </div>
+        </section>
+
+        <!-- Auswertungen -->
+        <section id="auswertungen" class="grid grid-cols-1 md:grid-cols-2 gap-16 items-center flex-col-reverse md:flex-row-reverse gsap-fade-up">
+          <div>
+            <h2 class="text-3xl font-bold mb-6">Auswertungen und Analysen</h2>
+            <p class="text-gray-600 dark:text-gray-400 text-lg mb-6 leading-relaxed">
+              Treffen Sie datenbasierte Entscheidungen. Unsere umfassenden Analysewerkzeuge geben Ihnen tiefe Einblicke in die Performance Ihrer Vertriebspartner und Kampagnen.
+            </p>
+            <ul class="space-y-4">
+              <li class="flex items-center gap-3"><svg class="w-5 h-5 text-purple-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg> Echtzeit-Statistiken</li>
+              <li class="flex items-center gap-3"><svg class="w-5 h-5 text-purple-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg> Kampagnen-Tracking</li>
+            </ul>
+          </div>
+          <div class="bg-gray-100 dark:bg-zinc-900 rounded-3xl aspect-video overflow-hidden relative">
+             <div class="absolute inset-0 bg-gradient-to-br from-purple-500/20 to-pink-500/20"></div>
+          </div>
+        </section>
+
+        <!-- Datenverwaltung -->
+        <section id="datenverwaltung" class="grid grid-cols-1 md:grid-cols-2 gap-16 items-center gsap-fade-up">
+          <div>
+            <h2 class="text-3xl font-bold mb-6">Zentrale Datenverwaltung</h2>
+            <p class="text-gray-600 dark:text-gray-400 text-lg mb-6 leading-relaxed">
+              Verwalten Sie alle wichtigen Assets und Dokumente an einem zentralen Ort und stellen Sie diese Ihren Partnern nahtlos zur Verfügung.
+            </p>
+             <ul class="space-y-4">
+              <li class="flex items-center gap-3"><svg class="w-5 h-5 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg> Asset Management</li>
+              <li class="flex items-center gap-3"><svg class="w-5 h-5 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg> Rechte & Rollen</li>
+            </ul>
+          </div>
+          <div class="bg-gray-100 dark:bg-zinc-900 rounded-3xl aspect-video overflow-hidden relative">
+             <div class="absolute inset-0 bg-gradient-to-br from-green-500/20 to-blue-500/20"></div>
+          </div>
+        </section>
+      </div>
+    </div>
+  </main>
+  <Footer />
+</Layout>
+
+<script>
+  import gsap from 'gsap';
+  import { ScrollTrigger } from 'gsap/ScrollTrigger';
+
+  gsap.registerPlugin(ScrollTrigger);
+
+  const fadeUps = document.querySelectorAll('.gsap-fade-up');
+  fadeUps.forEach((element) => {
+    gsap.fromTo(element,
+      { y: 30, opacity: 0 },
+      {
+        y: 0,
+        opacity: 1,
+        duration: 0.8,
+        ease: "power2.out",
+        scrollTrigger: {
+          trigger: element,
+          start: "top 85%",
+        }
+      }
+    );
+  });
+</script>

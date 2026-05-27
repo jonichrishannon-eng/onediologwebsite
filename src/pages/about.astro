@@ -1,0 +1,71 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+---
+
+<Layout title="Über uns">
+  <Header />
+  <main class="min-h-screen pt-32 pb-20">
+    <div class="max-w-4xl mx-auto px-6 text-center">
+      <div class="gsap-fade-up">
+        <h1 class="text-5xl md:text-6xl font-bold tracking-tight mb-6">Über uns</h1>
+        <p class="text-xl text-gray-600 dark:text-gray-400 mb-12">
+          Wir sind die treibende Kraft hinter der Digitalisierung des lokalen Vertriebs.
+        </p>
+      </div>
+
+      <div class="prose prose-lg dark:prose-invert mx-auto text-left gsap-fade-up">
+        <p>
+          Mit starken Partnern an Ihrer Seite wachsen. LOOP’s Business-Messaging-Plattform erhöht Ihre Erreichbarkeit sowie Sichtbarkeit als lokaler Partner und ermöglicht starken Marken, digitales Marketing im gesamten Partnernetz umzusetzen.
+        </p>
+        <p>
+          Wir glauben daran, dass die Zukunft des Vertriebs in den Händen derer liegt, die Technologie nutzen, um menschliche Beziehungen zu stärken, nicht zu ersetzen.
+        </p>
+      </div>
+
+      <div class="mt-20 gsap-fade-up">
+         <h2 class="text-3xl font-bold mb-10">Unsere Werte</h2>
+         <div class="grid grid-cols-1 md:grid-cols-3 gap-8 text-left">
+            <div class="bg-gray-50 dark:bg-zinc-900 p-8 rounded-2xl">
+               <h3 class="font-bold text-xl mb-3 text-blue-600 dark:text-blue-400">Innovation</h3>
+               <p class="text-gray-600 dark:text-gray-400">Ständige Weiterentwicklung unserer Technologien.</p>
+            </div>
+            <div class="bg-gray-50 dark:bg-zinc-900 p-8 rounded-2xl">
+               <h3 class="font-bold text-xl mb-3 text-blue-600 dark:text-blue-400">Datenschutz</h3>
+               <p class="text-gray-600 dark:text-gray-400">100% verschlüsselt und DSGVO-konform. Hosted in Germany.</p>
+            </div>
+            <div class="bg-gray-50 dark:bg-zinc-900 p-8 rounded-2xl">
+               <h3 class="font-bold text-xl mb-3 text-blue-600 dark:text-blue-400">Kundennähe</h3>
+               <p class="text-gray-600 dark:text-gray-400">Tools, die echten Dialog und Beziehung fördern.</p>
+            </div>
+         </div>
+      </div>
+    </div>
+  </main>
+  <Footer />
+</Layout>
+
+<script>
+  import gsap from 'gsap';
+  import { ScrollTrigger } from 'gsap/ScrollTrigger';
+
+  gsap.registerPlugin(ScrollTrigger);
+
+  const fadeUps = document.querySelectorAll('.gsap-fade-up');
+  fadeUps.forEach((element) => {
+    gsap.fromTo(element,
+      { y: 30, opacity: 0 },
+      {
+        y: 0,
+        opacity: 1,
+        duration: 0.8,
+        ease: "power2.out",
+        scrollTrigger: {
+          trigger: element,
+          start: "top 85%",
+        }
+      }
+    );
+  });
+</script>

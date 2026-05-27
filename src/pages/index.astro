@@ -1,0 +1,313 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+---
+
+<Layout title="Home">
+  <Header />
+  <main class="min-h-screen">
+    <!-- Hero Section with Canvas Logo Animation -->
+    <section class="relative h-[300vh] w-full" id="hero-section">
+      <!-- Sticky Container for Canvas -->
+      <div class="sticky top-0 h-screen w-full flex flex-col items-center justify-center overflow-hidden bg-white dark:bg-zinc-950">
+
+        <!-- Text overlay that fades out -->
+        <div class="absolute inset-0 flex flex-col items-center justify-center z-10 pointer-events-none" id="hero-text">
+          <h1 class="text-5xl md:text-7xl font-bold tracking-tight text-center max-w-4xl px-6 mb-6">
+            The Future. <br/>
+            <span class="bg-clip-text text-transparent bg-gradient-to-r from-blue-600 to-purple-600">In your Hands.</span>
+          </h1>
+          <p class="text-xl text-gray-600 dark:text-gray-400 max-w-2xl text-center px-6">
+            Die Customer Dialog Plattform. Digitalisieren Sie Ihren lokalen Vertrieb.
+          </p>
+        </div>
+
+        <!-- Canvas for the Liquid Infinity Logo -->
+        <canvas id="liquid-logo" class="w-full h-full absolute top-0 left-0 z-0 opacity-0 pointer-events-none"></canvas>
+      </div>
+    </section>
+
+    <!-- Info Section 1 -->
+    <section class="py-32 px-6 bg-gray-50 dark:bg-zinc-900 z-20 relative rounded-t-[3rem] shadow-[0_-20px_50px_rgba(0,0,0,0.1)] dark:shadow-[0_-20px_50px_rgba(0,0,0,0.5)] border-t border-gray-200 dark:border-zinc-800">
+      <div class="max-w-7xl mx-auto">
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-16 items-center">
+          <div class="gsap-fade-up">
+            <h2 class="text-4xl md:text-5xl font-bold mb-6 tracking-tight">Digitalisieren Sie Ihren lokalen Vertrieb.</h2>
+            <p class="text-lg text-gray-600 dark:text-gray-400 mb-8 leading-relaxed">
+              Als Marke profitieren Sie von einer einheitlichen Customer Experience und einer effizienten Abwicklung der Kundenkommunikation Ihrer Vertriebspartner.
+            </p>
+            <ul class="space-y-8">
+              <li class="flex items-start gap-4">
+                <div class="p-3 bg-blue-100 dark:bg-blue-900/40 rounded-xl text-blue-600 dark:text-blue-400 mt-1">
+                  <svg class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 10h.01M12 10h.01M16 10h.01M9 16H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-5l-5 5v-5z" /></svg>
+                </div>
+                <div>
+                  <h3 class="font-bold text-xl mb-2 text-gray-900 dark:text-white">Kundenkommunikation</h3>
+                  <p class="text-gray-600 dark:text-gray-400 leading-relaxed">oneDialog vereint moderne Kommunikationskanäle wie WhatsApp, Google My Business Nachrichten, Facebook und E-Mail in einem Posteingang.</p>
+                </div>
+              </li>
+              <li class="flex items-start gap-4">
+                <div class="p-3 bg-purple-100 dark:bg-purple-900/40 rounded-xl text-purple-600 dark:text-purple-400 mt-1">
+                  <svg class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z" /></svg>
+                </div>
+                <div>
+                  <h3 class="font-bold text-xl mb-2 text-gray-900 dark:text-white">Automatisierung</h3>
+                  <p class="text-gray-600 dark:text-gray-400 leading-relaxed">CI-gerechte Vorlagen und Dokumente ermöglichen schnelle Reaktionszeiten und steigern die Kundenzufriedenheit erheblich.</p>
+                </div>
+              </li>
+            </ul>
+            <a href="/app" class="inline-flex items-center gap-2 mt-10 text-lg font-semibold text-white bg-gray-900 dark:bg-white dark:text-gray-900 px-6 py-3 rounded-full hover:scale-105 transition-transform">
+              Mehr erfahren
+              <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
+            </a>
+          </div>
+          <div class="relative gsap-fade-up">
+            <div class="absolute -inset-4 bg-gradient-to-tr from-blue-600/30 to-purple-600/30 blur-3xl rounded-full opacity-50"></div>
+            <img src="/assets/616fff29990abe9e50b1dc6f_app_dashboard.png" alt="App Dashboard" class="relative z-10 w-full rounded-3xl shadow-2xl border border-gray-200/50 dark:border-white/10 transform rotate-2 hover:rotate-0 transition-transform duration-500" />
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Info Section 2 (Brand Cockpit) -->
+    <section class="py-32 px-6 bg-white dark:bg-zinc-950 z-20 relative">
+      <div class="max-w-7xl mx-auto">
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-16 items-center flex-col-reverse md:flex-row-reverse">
+          <div class="gsap-fade-up order-1 md:order-2">
+            <span class="text-sm font-bold tracking-widest uppercase text-blue-600 dark:text-blue-400 mb-4 block">Für die Marke</span>
+            <h2 class="text-4xl md:text-5xl font-bold mb-6 tracking-tight">Brand Cockpit</h2>
+            <p class="text-lg text-gray-600 dark:text-gray-400 mb-8 leading-relaxed">
+              Verwalten, steuern und analysieren Sie die Kommunikation Ihrer Vertriebspartner zentral mit der oneDialog Brand Cockpit Anwendung.
+            </p>
+            <ul class="space-y-6">
+               <li class="border-l-2 border-gray-200 dark:border-zinc-800 pl-4 hover:border-blue-600 dark:hover:border-blue-400 transition-colors">
+                  <h3 class="font-bold text-lg mb-1">Vorlagen und Inhalte zentral verwalten</h3>
+                  <p class="text-sm text-gray-600 dark:text-gray-400">Verwalten und aktualisieren Sie Dokumente wie Informationsblätter, Marketingmaterialien oder Angebote zentral.</p>
+               </li>
+               <li class="border-l-2 border-gray-200 dark:border-zinc-800 pl-4 hover:border-blue-600 dark:hover:border-blue-400 transition-colors">
+                  <h3 class="font-bold text-lg mb-1">Auswertungen und Analysen</h3>
+                  <p class="text-sm text-gray-600 dark:text-gray-400">Erheben Sie Marketingzahlen und analysieren Sie das Verhalten Ihrer Kunden sowie die gesetzten Marketingziele.</p>
+               </li>
+            </ul>
+            <a href="/brand-cockpit" class="inline-flex items-center gap-2 mt-8 text-blue-600 dark:text-blue-400 font-semibold hover:gap-4 transition-all">
+              Brand Cockpit entdecken
+              <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
+            </a>
+          </div>
+          <div class="relative gsap-fade-up order-2 md:order-1">
+            <img src="/assets/63a4c23322930c050a73a6ea_web_news.png" alt="Brand Cockpit" class="relative z-10 w-full rounded-3xl shadow-xl border border-gray-200/50 dark:border-white/10" />
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Benefits Section -->
+    <section class="py-32 px-6 bg-gray-50 dark:bg-zinc-900 border-t border-gray-200 dark:border-zinc-800">
+      <div class="max-w-7xl mx-auto">
+        <div class="text-center mb-16 gsap-fade-up">
+          <h2 class="text-4xl md:text-5xl font-bold mb-6 tracking-tight">Vorteile von oneDialog</h2>
+          <p class="text-xl text-gray-600 dark:text-gray-400 max-w-3xl mx-auto">
+            Von oneDialog profitieren Ihre Marke, Ihre Vertriebspartner und vor allem Ihre Kunden.
+          </p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <!-- Card 1 -->
+          <div class="bg-white dark:bg-zinc-950 p-8 rounded-3xl shadow-sm border border-gray-100 dark:border-zinc-800 gsap-fade-up">
+            <img src="/assets/616fff2a990abe9159b1dc78_benefit_onboarding.png" alt="Onboarding" class="w-20 h-20 mb-6 object-contain" />
+            <h3 class="text-xl font-bold mb-4">Einfaches Onboarding</h3>
+            <p class="text-gray-600 dark:text-gray-400 text-sm leading-relaxed">
+              Ihre Partner installieren einfach die oneDialog App auf Ihrem Smartphone, verknüpfen Ihre Kommunikationskanäle und können sofort loslegen. Keine IT-Infrastruktur notwendig.
+            </p>
+          </div>
+          <!-- Card 2 -->
+          <div class="bg-white dark:bg-zinc-950 p-8 rounded-3xl shadow-sm border border-gray-100 dark:border-zinc-800 gsap-fade-up delay-100">
+            <img src="/assets/616fff2acb5aa06524713bca_benefit_whitelabel.png" alt="Whitelabel" class="w-20 h-20 mb-6 object-contain" />
+            <h3 class="text-xl font-bold mb-4">Individuelle Anpassung</h3>
+            <p class="text-gray-600 dark:text-gray-400 text-sm leading-relaxed">
+              Die oneDialog App kann an Ihr Branding sowie an die bestehenden Anforderungen und Prozesse Ihres Unternehmens angepasst werden.
+            </p>
+          </div>
+          <!-- Card 3 -->
+          <div class="bg-white dark:bg-zinc-950 p-8 rounded-3xl shadow-sm border border-gray-100 dark:border-zinc-800 gsap-fade-up delay-200">
+            <img src="/assets/61920f097b79f112a26d4984_benefit_allinone.png" alt="All-in-One" class="w-20 h-20 mb-6 object-contain" />
+            <h3 class="text-xl font-bold mb-4">All-in-One Lösung</h3>
+            <p class="text-gray-600 dark:text-gray-400 text-sm leading-relaxed">
+              oneDialog bietet alle Tools und Funktionen, die Sie für die Digitalisierung Ihrer Vertriebspartner und deren Kundenkommunikation benötigen.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+  <Footer />
+</Layout>
+
+<script>
+  import gsap from 'gsap';
+  import { ScrollTrigger } from 'gsap/ScrollTrigger';
+
+  gsap.registerPlugin(ScrollTrigger);
+
+  // --- UI Animations ---
+  const fadeUps = document.querySelectorAll('.gsap-fade-up');
+  fadeUps.forEach((element) => {
+    gsap.fromTo(element,
+      { y: 50, opacity: 0 },
+      {
+        y: 0,
+        opacity: 1,
+        duration: 1,
+        ease: "power3.out",
+        scrollTrigger: {
+          trigger: element,
+          start: "top 85%",
+        }
+      }
+    );
+  });
+
+  // --- Liquid Infinity Canvas Animation ---
+  const canvas = document.getElementById('liquid-logo') as HTMLCanvasElement;
+  const ctx = canvas.getContext('2d');
+
+  if (canvas && ctx) {
+    // Resize canvas to fill container
+    const resizeCanvas = () => {
+      canvas.width = window.innerWidth;
+      canvas.height = window.innerHeight;
+    };
+    window.addEventListener('resize', resizeCanvas);
+    resizeCanvas();
+
+    // Particle System Variables
+    const particles: Particle[] = [];
+    const numParticles = 1000;
+
+    // The "Infinity" Shape parametric equation
+    // x = a * cos(t) / (1 + sin^2(t))
+    // y = a * sin(t) * cos(t) / (1 + sin^2(t))
+    const getInfinityPoint = (t: number, scale: number) => {
+      const a = scale;
+      const denom = 1 + Math.pow(Math.sin(t), 2);
+      const x = (a * Math.cos(t)) / denom;
+      const y = (a * Math.sin(t) * Math.cos(t)) / denom;
+      return { x, y };
+    };
+
+    class Particle {
+      x: number;
+      y: number;
+      baseX: number;
+      baseY: number;
+      size: number;
+      color: string;
+      t: number;
+      speed: number;
+      randomOffset: { x: number, y: number };
+
+      constructor() {
+        this.t = Math.random() * Math.PI * 2;
+        this.size = Math.random() * 2.5 + 0.5;
+        // Randomly assign blue or purple hues
+        const isBlue = Math.random() > 0.5;
+        this.color = isBlue ? `rgba(37, 99, 235, ${Math.random() * 0.5 + 0.2})` : `rgba(147, 51, 234, ${Math.random() * 0.5 + 0.2})`;
+
+        this.speed = (Math.random() * 0.02) + 0.005;
+        this.randomOffset = {
+          x: (Math.random() - 0.5) * window.innerWidth * 2,
+          y: (Math.random() - 0.5) * window.innerHeight * 2
+        };
+
+        // Initial position is scattered
+        this.x = canvas.width / 2 + this.randomOffset.x;
+        this.y = canvas.height / 2 + this.randomOffset.y;
+        this.baseX = this.x;
+        this.baseY = this.y;
+      }
+
+      update(progress: number) {
+        // progress goes from 0 to 1 during the scroll
+
+        // Calculate target shape (Infinity logo)
+        const scale = Math.min(canvas.width, canvas.height) * 0.35;
+        const target = getInfinityPoint(this.t, scale);
+        const targetX = canvas.width / 2 + target.x;
+        const targetY = canvas.height / 2 + target.y;
+
+        // Add a bit of fluid motion along the path
+        this.t += this.speed * progress;
+
+        // Interpolate between scattered (progress=0) and shape (progress=1)
+        // We use an ease out for the progress to make it snap in smoothly
+        const easeProgress = Math.pow(progress, 2); // Accelerate into the shape
+
+        this.x = this.baseX + (targetX - this.baseX) * easeProgress;
+        this.y = this.baseY + (targetY - this.baseY) * easeProgress;
+
+        // Add some noise based on progress (less noise as it forms)
+        const noise = (1 - easeProgress) * 50;
+        this.x += (Math.random() - 0.5) * noise;
+        this.y += (Math.random() - 0.5) * noise;
+      }
+
+      draw() {
+        if (!ctx) return;
+        ctx.fillStyle = this.color;
+        ctx.beginPath();
+        ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+        ctx.fill();
+      }
+    }
+
+    for (let i = 0; i < numParticles; i++) {
+      particles.push(new Particle());
+    }
+
+    // Scroll Animation timeline
+    const tl = gsap.timeline({
+      scrollTrigger: {
+        trigger: "#hero-section",
+        start: "top top",
+        end: "bottom top",
+        scrub: 1,
+      }
+    });
+
+    // Object to hold progress value
+    const animState = { progress: 0 };
+
+    tl.to("#hero-text", {
+      opacity: 0,
+      y: -50,
+      duration: 0.3
+    })
+    .to(canvas, {
+      opacity: 1,
+      duration: 0.2
+    }, 0)
+    .to(animState, {
+      progress: 1,
+      duration: 1,
+      ease: "none"
+    }, 0);
+
+    // Render loop
+    const render = () => {
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+      // Optional: Add global composite operation for "liquid" look
+      ctx.globalCompositeOperation = 'screen';
+
+      particles.forEach(p => {
+        p.update(animState.progress);
+        p.draw();
+      });
+
+      requestAnimationFrame(render);
+    };
+
+    render();
+  }
+</script>
