@@ -1,0 +1,132 @@
+---
+---
+
+<header class="fixed top-0 left-0 right-0 z-50 px-6 py-4 transition-all duration-300" id="main-header">
+  <div class="max-w-7xl mx-auto flex items-center justify-between">
+    <!-- Logo -->
+    <a href="/" class="flex items-center gap-2 group z-50">
+      <img src="/assets/logo.png" alt="oneDialog" class="h-8 block dark:hidden" />
+      <img src="/assets/logo-white.png" alt="oneDialog" class="h-8 hidden dark:block" />
+    </a>
+
+    <!-- Desktop Navigation -->
+    <nav class="hidden md:flex items-center gap-8 bg-white/70 dark:bg-zinc-900/70 backdrop-blur-md px-6 py-3 rounded-full border border-gray-200 dark:border-zinc-800 shadow-sm">
+      <a href="/brand-cockpit" class="text-sm font-medium hover:text-blue-600 dark:hover:text-blue-400 transition-colors">Brand Cockpit</a>
+      <a href="/app" class="text-sm font-medium hover:text-blue-600 dark:hover:text-blue-400 transition-colors">App</a>
+      <a href="/blog" class="text-sm font-medium hover:text-blue-600 dark:hover:text-blue-400 transition-colors">Blog</a>
+      <a href="/about" class="text-sm font-medium hover:text-blue-600 dark:hover:text-blue-400 transition-colors">Über uns</a>
+    </nav>
+
+    <!-- Controls (Theme Toggle + Login + Mobile Menu Button) -->
+    <div class="flex items-center gap-4 z-50">
+      <!-- Theme Toggle -->
+      <button id="theme-toggle" class="p-2 rounded-full hover:bg-gray-100 dark:hover:bg-zinc-800 transition-colors" aria-label="Toggle Dark Mode">
+        <svg id="sun-icon" class="w-5 h-5 hidden dark:block" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z" />
+        </svg>
+        <svg id="moon-icon" class="w-5 h-5 block dark:hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z" />
+        </svg>
+      </button>
+
+      <a href="https://portal.onedialog.io/app/login" class="hidden md:flex items-center gap-2 text-sm font-medium hover:text-blue-600 dark:hover:text-blue-400 transition-colors">
+        Login
+        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
+      </a>
+
+      <!-- Mobile Menu Button -->
+      <button id="mobile-menu-btn" class="md:hidden p-2 flex flex-col gap-1.5 focus:outline-none z-50">
+        <span class="w-6 h-0.5 bg-gray-900 dark:bg-white rounded-full transition-transform duration-300 origin-center" id="bar1"></span>
+        <span class="w-6 h-0.5 bg-gray-900 dark:bg-white rounded-full transition-opacity duration-300" id="bar2"></span>
+        <span class="w-6 h-0.5 bg-gray-900 dark:bg-white rounded-full transition-transform duration-300 origin-center" id="bar3"></span>
+      </button>
+    </div>
+  </div>
+
+  <!-- Mobile Menu Overlay -->
+  <div id="mobile-menu" class="fixed inset-0 bg-white/95 dark:bg-zinc-950/95 backdrop-blur-lg flex flex-col items-center justify-center gap-8 opacity-0 pointer-events-none transition-opacity duration-300 z-40">
+    <nav class="flex flex-col items-center gap-6 text-2xl font-semibold">
+      <a href="/brand-cockpit" class="mobile-link hover:text-blue-600 dark:hover:text-blue-400 transition-colors transform translate-y-4 opacity-0">Brand Cockpit</a>
+      <a href="/app" class="mobile-link hover:text-blue-600 dark:hover:text-blue-400 transition-colors transform translate-y-4 opacity-0">App</a>
+      <a href="/blog" class="mobile-link hover:text-blue-600 dark:hover:text-blue-400 transition-colors transform translate-y-4 opacity-0">Blog</a>
+      <a href="/about" class="mobile-link hover:text-blue-600 dark:hover:text-blue-400 transition-colors transform translate-y-4 opacity-0">Über uns</a>
+      <a href="https://portal.onedialog.io/app/login" class="mobile-link mt-4 text-blue-600 dark:text-blue-400 transform translate-y-4 opacity-0">Login</a>
+    </nav>
+  </div>
+</header>
+
+<script>
+  // Theme Toggle Logic
+  const themeToggle = document.getElementById('theme-toggle');
+
+  // Check local storage or system preference
+  if (localStorage.theme === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+    document.documentElement.classList.add('dark');
+  } else {
+    document.documentElement.classList.remove('dark');
+  }
+
+  themeToggle?.addEventListener('click', () => {
+    document.documentElement.classList.toggle('dark');
+    if (document.documentElement.classList.contains('dark')) {
+      localStorage.theme = 'dark';
+    } else {
+      localStorage.theme = 'light';
+    }
+  });
+
+  // Mobile Menu Logic
+  const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+  const mobileMenu = document.getElementById('mobile-menu');
+  const bar1 = document.getElementById('bar1');
+  const bar2 = document.getElementById('bar2');
+  const bar3 = document.getElementById('bar3');
+  const mobileLinks = document.querySelectorAll('.mobile-link');
+  let isMenuOpen = false;
+
+  mobileMenuBtn?.addEventListener('click', () => {
+    isMenuOpen = !isMenuOpen;
+
+    if (isMenuOpen) {
+      // Open Menu
+      document.body.style.overflow = 'hidden'; // Prevent scrolling
+      mobileMenu?.classList.remove('opacity-0', 'pointer-events-none');
+
+      // Animate Hamburger
+      bar1?.classList.add('translate-y-2', 'rotate-45');
+      bar2?.classList.add('opacity-0');
+      bar3?.classList.add('-translate-y-2', '-rotate-45');
+
+      // Animate Links
+      mobileLinks.forEach((link, index) => {
+        setTimeout(() => {
+          link.classList.remove('translate-y-4', 'opacity-0');
+        }, 100 + (index * 50));
+      });
+    } else {
+      // Close Menu
+      document.body.style.overflow = ''; // Restore scrolling
+      mobileMenu?.classList.add('opacity-0', 'pointer-events-none');
+
+      // Animate Hamburger
+      bar1?.classList.remove('translate-y-2', 'rotate-45');
+      bar2?.classList.remove('opacity-0');
+      bar3?.classList.remove('-translate-y-2', '-rotate-45');
+
+      // Animate Links
+      mobileLinks.forEach((link) => {
+        link.classList.add('translate-y-4', 'opacity-0');
+      });
+    }
+  });
+
+  // Header Scroll Effect
+  const header = document.getElementById('main-header');
+  window.addEventListener('scroll', () => {
+    if (window.scrollY > 20) {
+      header?.classList.add('bg-white/50', 'dark:bg-zinc-950/50', 'backdrop-blur-lg', 'shadow-sm', 'border-b', 'border-gray-200/50', 'dark:border-zinc-800/50');
+    } else {
+      header?.classList.remove('bg-white/50', 'dark:bg-zinc-950/50', 'backdrop-blur-lg', 'shadow-sm', 'border-b', 'border-gray-200/50', 'dark:border-zinc-800/50');
+    }
+  });
+</script>

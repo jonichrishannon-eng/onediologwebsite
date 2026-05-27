@@ -1,0 +1,21 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Header from '../../components/Header.astro';
+import Footer from '../../components/Footer.astro';
+---
+
+<Layout title="Impressum">
+  <Header />
+  <main class="min-h-screen pt-32 pb-20">
+    <div class="max-w-3xl mx-auto px-6">
+      <h1 class="text-4xl font-bold mb-10">Impressum</h1>
+      <div class="prose prose-lg dark:prose-invert">
+        <p>oneDialog GmbH<br/>Musterstraße 1<br/>12345 Musterstadt</p>
+        <p>Vertreten durch: Max Mustermann</p>
+        <p>Kontakt:<br/>Telefon: +49 (0) 123 456 789<br/>E-Mail: info@onedialog.io</p>
+        <p>Registereintrag:<br/>Eintragung im Handelsregister.<br/>Registergericht: Amtsgericht Musterstadt<br/>Registernummer: HRB 12345</p>
+      </div>
+    </div>
+  </main>
+  <Footer />
+</Layout>

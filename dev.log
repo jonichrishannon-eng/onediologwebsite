@@ -1,0 +1,15 @@
+
+> eminent-escape@0.0.1 dev
+> astro dev
+
+[vite] connected.
+10:58:28 [types] Generated 1ms
+10:58:28 [vite] Re-optimizing dependencies because vite config has changed
+ astro  v6.3.8 ready in 1930 ms
+┃ Local    http://localhost:4321/
+┃ Network  use --host to expose
+10:58:28 watching for file changes...
+11:00:13 [200] / 59ms
+11:00:13 [vite] ✨ new dependencies optimized: lenis, gsap, gsap/ScrollTrigger
+11:00:13 [vite] ✨ optimized dependencies changed. reloading
+11:02:52 [watch] /src/styles/global.css
